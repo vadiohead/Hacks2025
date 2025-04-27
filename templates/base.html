@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakebook</title>
+    <style>
+        /* your existing CSS here */
+        .vertical-nav {
+            width: 200px;
+            background-color: #f8f9fa;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .nav-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-item {
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .nav-link {
+            display: block;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s;
+        }
+        .nav-link:hover {
+            background-color: #e9ecef;
+        }
+        .nav-link.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .image-feed {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .image-wrapper {
+            width: 100%;
+            max-width: 600px;
+            border-top: 2px solid #ccc;
+            border-bottom: 2px solid #ccc;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <nav class="vertical-nav">
+        <ul class="nav-list">
+            <li class="nav-item"><h2>Fakebook</h2></li>
+            <li class="nav-item">
+                <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">My profile</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ url_for('images') }}" class="nav-link {% if request.path == '/images' %}active{% endif %}">Images</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Videos</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Audios</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+.image-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.card img {
+    width: 120px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.real {
+    background-color: green;
+    color: white;
+}
+
+.fake {
+    background-color: red;
+    color: white;
+}

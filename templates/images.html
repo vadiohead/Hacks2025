@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Upload an image</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required><br><br>
+        <input type="text" name="title" placeholder="Enter a title" required><br><br>
+        <button type="submit">Publish</button>
+    </form>
+
+    <hr>
+
+    <div class="image-feed">
+        {% for image in images %}
+        <div class="image-wrapper">
+            <img src="{{ url_for('static', filename='uploads/' ~ image.filename) }}" alt="{{ image.title }}" height="400">
+        </div>
+        <h1>{{ image.title }}</h1>
+        <p>Date uploaded:<br>{{ image.timestamp }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+
