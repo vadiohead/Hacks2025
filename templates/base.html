@@ -68,16 +68,16 @@
                 <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/' %}active{% endif %}">Home</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">My profile</a>
+                <a href="{{ url_for('profile') }}" class="nav-link {% if request.path == '/profile' %}active{% endif %}">My profile</a>
             </li>
             <li class="nav-item">
                 <a href="{{ url_for('images') }}" class="nav-link {% if request.path == '/images' %}active{% endif %}">Images</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Videos</a>
+                <a href="{{ url_for('videos') }}" class="nav-link {% if request.path == '/videos' %}active{% endif %}">Videos</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Audios</a>
+                <a href="{{ url_for('home') }}" class="nav-link {% if request.path == '/audios' %}active{% endif %}">Audios</a>
             </li>
         </ul>
     </nav>
